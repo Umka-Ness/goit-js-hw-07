@@ -24,5 +24,11 @@ item.addEventListener("click",e => {
     <img src="${selectedImage}" width="800" height="600">
 `)
     instance.show()
+    item.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            instance.close()
+        }
+    })
 
 })
+
