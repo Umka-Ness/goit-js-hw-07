@@ -4,18 +4,15 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const item = document.querySelector(".gallery")
+const link = document.querySelector(".gallery__link")
 
-const images = galleryItems.map(i => `<img src = "${i.preview}" data-source="${i.original}" alt="${i.description}" width="350" height="300"  class="img"></img>`).join("")
-item.insertAdjacentHTML("beforeend" ,images)
-
-
-item.style.display = "flex"
-item.style.flexWrap = "wrap"
-item.style.listStyle = "none";
-
+const images = galleryItems.map(i => `<a class="gallery__link" href="${i.original}"><img src = "${i.preview}" data-source="${i.original}" alt="${i.description}" width="" height=""  class="gallery__image"></img></a>`).join("")
+item.insertAdjacentHTML("beforeend",images)
+item.classList.add("gallery__item")
 
 item.addEventListener("click",e => {
-    if(e.target == item) {
+    e.preventDefault()
+    if(e.target === item) {
         return
     }
     
@@ -24,11 +21,6 @@ item.addEventListener("click",e => {
     <img src="${selectedImage}" width="800" height="600">
 `)
     instance.show()
-    item.addEventListener('keydown', e => {
-        if (e.key === 'Escape') {
-            instance.close()
-        }
-    })
 
 })
 
