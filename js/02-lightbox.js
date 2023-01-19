@@ -6,9 +6,9 @@ console.log(galleryItems);
 
 
 const item = document.querySelector(".gallery")
-const link = document.querySelector(".gallery__link")
 
-const images = galleryItems.map(i => `<a class="gallery__item" href="${i.original}">
+
+const images = galleryItems.map(i => `<a class="gallery__link" href="${i.original}">
 <img class="gallery__image" src="${i.preview}" alt="${i.description}" />
 </a>`).join("")
 item.insertAdjacentHTML("beforeend",images)
