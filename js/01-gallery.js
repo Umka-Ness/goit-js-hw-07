@@ -16,18 +16,21 @@ item.addEventListener("click",e => {
     if(e.target.nodeName !== 'IMG') {
         return
     }
-    
+
     const selectedImage = e.target.getAttribute('data-source')
     const instance = basicLightbox.create(`
     <img src="${selectedImage}" width="800" height="600">
-`)
+`,{
+    onShow: (instance) => {document.body.addEventListener("keydown",closeEsc)},
+    onClose: (instance) => {document.body.removeEventListener("keydown",closeEsc)},
+})
     instance.show()
     
-    document.body.addEventListener("keydown",event => {
-        if (event.code === "Escape") {
+    function closeEsc(e) {
+        if (e.code === "Escape") {
             instance.close()
             }
-    })
+    }
 })
 
 
