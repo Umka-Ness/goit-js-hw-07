@@ -32,7 +32,3 @@ item.addEventListener("click",e => {
             }
     }
 })
-
-
-
-
