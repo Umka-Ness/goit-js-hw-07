@@ -13,13 +13,13 @@ const images = galleryItems.map(i => `<a class="gallery__link" href="${i.origina
 </a>`).join("")
 item.insertAdjacentHTML("beforeend",images)
 
-item.addEventListener("click",e => {
-    e.preventDefault()
-    if(e.target === item) {
-        return
-    }
+// item.addEventListener("click",e => {
+//     e.preventDefault()
+//     if(e.target === item) {
+//         return
+//     }
 	
-})
+// })
 new SimpleLightbox('.gallery a', {captionDelay:250,captionPosition:"botton",captionsData:"alt"});
 
 

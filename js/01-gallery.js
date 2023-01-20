@@ -13,7 +13,7 @@ item.classList.add("gallery__item")
 
 item.addEventListener("click",e => {
     e.preventDefault()
-    if(e.target === item) {
+    if(e.target.nodeName !== 'IMG') {
         return
     }
     
